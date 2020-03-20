@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# To avoid temporal office doc created _L
+~*.doc
+~*.docx
