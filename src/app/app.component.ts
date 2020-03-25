@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,4 @@ import { stringify } from 'querystring';
 export class AppComponent {
   loadedFeature: string;
 
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
 }
