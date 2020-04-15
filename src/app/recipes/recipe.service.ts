@@ -9,23 +9,29 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
-  recipes: Recipe[] = [
-    new Recipe('A test recipe', 'This is a simply a test description',
+  /*private recipes: Recipe[] = [
+    new Recipe('A test recipe', 'This is a simply test description',
       'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/caponata-pasta_1.jpg',
       [
         new Ingredient('Pasta', 1),
         new Ingredient('Meat', 1)
       ]),
-    new Recipe('Another test recipe', 'This is a simply a test  description',
+    new Recipe('Another test recipe', 'This is a another test description',
       'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-crispy-chicken-thighs-garlic-rosemary-1567793052.png'
       + '?crop=0.670xw:1.00xh;0.0513xw,0&resize=640:*',
       [
         new Ingredient('Chicken', 8),
         new Ingredient('Garlic', 2)
       ])
-  ];
+  ];*/
+  private recipes: Recipe[] = [];
 
   constructor(private slService: ShoppingListService) { }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     // we return a new array of recipes to avoid modifications
